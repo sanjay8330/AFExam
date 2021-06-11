@@ -91,10 +91,11 @@ class AddBook extends Component {
                             onChange={this.onChange}
                         />
                     </div>
+                    <label htmlFor="bookAuthor" className="form-label">Book Author</label>
                     <Select
                         options={this.state.authorOptions}
                         onChange={this.onSelected}
-                    />
+                    /><br />
                     <div className="mb-3">
                         <label htmlFor="bookPrice" className="form-label">Book Price</label>
                         <input

@@ -32620,7 +32620,6 @@ try {
           authorList: response.data.data
         }, () => {
           let data = [];
-          console.log('RESPONSE ', this.state.authorList);
           this.state.authorList.map((item, key) => {
             let author = {
               value: item._id,
@@ -32667,14 +32666,14 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 70,
+            lineNumber: 69,
             columnNumber: 13
           }
         }, /*#__PURE__*/_reactDefault.default.createElement("h1", {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 71,
+            lineNumber: 70,
             columnNumber: 17
           }
         }, "Create Book"), /*#__PURE__*/_reactDefault.default.createElement("form", {
@@ -32682,7 +32681,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 72,
+            lineNumber: 71,
             columnNumber: 17
           }
         }, /*#__PURE__*/_reactDefault.default.createElement("div", {
@@ -32690,7 +32689,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 73,
+            lineNumber: 72,
             columnNumber: 21
           }
         }, /*#__PURE__*/_reactDefault.default.createElement("label", {
@@ -32699,7 +32698,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 74,
+            lineNumber: 73,
             columnNumber: 25
           }
         }, "Book Name"), /*#__PURE__*/_reactDefault.default.createElement("input", {
@@ -32712,7 +32711,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 75,
+            lineNumber: 74,
             columnNumber: 25
           }
         })), /*#__PURE__*/_reactDefault.default.createElement("div", {
@@ -32720,7 +32719,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 84,
+            lineNumber: 83,
             columnNumber: 21
           }
         }, /*#__PURE__*/_reactDefault.default.createElement("label", {
@@ -32729,7 +32728,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 85,
+            lineNumber: 84,
             columnNumber: 25
           }
         }, "Book ISBN"), /*#__PURE__*/_reactDefault.default.createElement("input", {
@@ -32742,10 +32741,19 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 86,
+            lineNumber: 85,
             columnNumber: 25
           }
-        })), /*#__PURE__*/_reactDefault.default.createElement(_reactSelectDefault.default, {
+        })), /*#__PURE__*/_reactDefault.default.createElement("label", {
+          htmlFor: "bookAuthor",
+          className: "form-label",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 94,
+            columnNumber: 21
+          }
+        }, "Book Author"), /*#__PURE__*/_reactDefault.default.createElement(_reactSelectDefault.default, {
           options: this.state.authorOptions,
           onChange: this.onSelected,
           __self: this,
@@ -32753,6 +32761,13 @@ try {
             fileName: _jsxFileName,
             lineNumber: 95,
             columnNumber: 21
+          }
+        }), /*#__PURE__*/_reactDefault.default.createElement("br", {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 98,
+            columnNumber: 23
           }
         }), /*#__PURE__*/_reactDefault.default.createElement("div", {
           className: "mb-3",

@@ -34,25 +34,8 @@ const getBookById = async (req, res) => {
     }
 }
 
-const calculatePrice = async (req, res) => {
-    let totalAmount = 0;
-    books =[];
-    
-    if(req.body){
-        books = req.body.bookIds; 
-        if(books.length > 0){
-            books.map((book) => {
-                BookModel.findById(book)
-                totalAmount += book.bookPrice;
-            })
-        }
-    }
-    res.status(200).send({ totalAmount: totalAmount});
-}
-
 module.exports = {
     addBook,
     getBooks,
-    getBookById,
-    calculatePrice
+    getBookById
 }
