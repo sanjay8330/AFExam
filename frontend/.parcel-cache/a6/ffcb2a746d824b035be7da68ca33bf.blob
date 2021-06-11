@@ -1,0 +1,264 @@
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  var _react = require('react');
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _reactSelect = require('react-select');
+  var _reactSelectDefault = _parcelHelpers.interopDefault(_reactSelect);
+  var _axios = require('axios');
+  var _axiosDefault = _parcelHelpers.interopDefault(_axios);
+  var _jsxFileName = "C:\\Users\\HP\\Desktop\\Assignments\\PracticeExam2\\frontend\\components\\Books\\addBooks.js";
+  const initalStates = {
+    "bookName": '',
+    "ISBN": 0,
+    "bookAuthor": '',
+    "bookPrice": 0,
+    "YOP": 0,
+    "publisher": '',
+    "authorList": [],
+    "authorOptions": [],
+    "selectedAuthor": ''
+  };
+  class AddBook extends _react.Component {
+    constructor(props) {
+      super(props);
+      this.onChange = this.onChange.bind(this);
+      this.onSelected = this.onSelected.bind(this);
+      this.state = initalStates;
+    }
+    componentDidMount() {
+      _axiosDefault.default.get('http://localhost:8080/author/getAuthors').then(response => {
+        this.setState({
+          authorList: response.response.response
+        }, () => {
+          let data = [];
+          console.log('RESPONSE ', this.state.authorList);
+          this.state.authorList.map((item, key) => {
+            let author = {
+              value: item._id,
+              label: item.firstName
+            };
+            data.push(author);
+          });
+          this.setState({
+            authorOptions: data
+          });
+        });
+      });
+    }
+    onSelected(e) {
+      this.setState({
+        selectedAuthor: e.target.value
+      });
+    }
+    onChange(e) {
+      this.setState({
+        [e.target.name]: e.target.value
+      });
+    }
+    render() {
+      return (
+        /*#__PURE__*/_reactDefault.default.createElement("div", {
+          className: "container",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 51,
+            columnNumber: 13
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement("h1", {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 52,
+            columnNumber: 17
+          }
+        }, "Create Book"), /*#__PURE__*/_reactDefault.default.createElement("form", {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 53,
+            columnNumber: 17
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement("div", {
+          className: "mb-3",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 54,
+            columnNumber: 21
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement("label", {
+          htmlFor: "bookName",
+          className: "form-label",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 55,
+            columnNumber: 25
+          }
+        }, "Book Name"), /*#__PURE__*/_reactDefault.default.createElement("input", {
+          type: "text",
+          className: "form-control",
+          id: "bookName",
+          name: "bookName",
+          value: this.state.bookName,
+          onChange: this.onChange,
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 56,
+            columnNumber: 25
+          }
+        })), /*#__PURE__*/_reactDefault.default.createElement("div", {
+          className: "mb-3",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 65,
+            columnNumber: 21
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement("label", {
+          htmlFor: "bookISBN",
+          className: "form-label",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 66,
+            columnNumber: 25
+          }
+        }, "Book ISBN"), /*#__PURE__*/_reactDefault.default.createElement("input", {
+          type: "number",
+          className: "form-control",
+          id: "ISBN",
+          name: "ISBN",
+          value: this.state.ISBN,
+          onChange: this.onChange,
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 67,
+            columnNumber: 25
+          }
+        })), /*#__PURE__*/_reactDefault.default.createElement(_reactSelectDefault.default, {
+          options: this.state.authorOptions,
+          onChange: this.onSelected,
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 76,
+            columnNumber: 21
+          }
+        }), /*#__PURE__*/_reactDefault.default.createElement("div", {
+          className: "mb-3",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 80,
+            columnNumber: 21
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement("label", {
+          htmlFor: "bookPrice",
+          className: "form-label",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 81,
+            columnNumber: 25
+          }
+        }, "Book Price"), /*#__PURE__*/_reactDefault.default.createElement("input", {
+          type: "number",
+          className: "form-control",
+          id: "bookPrice",
+          name: "bookPrice",
+          value: this.state.bookPrice,
+          onChange: this.onChange,
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 82,
+            columnNumber: 25
+          }
+        })), /*#__PURE__*/_reactDefault.default.createElement("div", {
+          className: "mb-3",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 91,
+            columnNumber: 21
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement("label", {
+          htmlFor: "bookYOP",
+          className: "form-label",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 92,
+            columnNumber: 25
+          }
+        }, "Book Published Year"), /*#__PURE__*/_reactDefault.default.createElement("input", {
+          type: "number",
+          className: "form-control",
+          id: "YOP",
+          name: "YOP",
+          value: this.state.YOP,
+          onChange: this.onChange,
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 93,
+            columnNumber: 25
+          }
+        })), /*#__PURE__*/_reactDefault.default.createElement("div", {
+          className: "mb-3",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 102,
+            columnNumber: 21
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement("label", {
+          htmlFor: "bookPublisher",
+          className: "form-label",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 103,
+            columnNumber: 25
+          }
+        }, "Book Publisher"), /*#__PURE__*/_reactDefault.default.createElement("input", {
+          type: "text",
+          className: "form-control",
+          id: "publisher",
+          name: "publisher",
+          value: this.state.publisher,
+          onChange: this.onChange,
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 104,
+            columnNumber: 25
+          }
+        })), /*#__PURE__*/_reactDefault.default.createElement("button", {
+          type: "submit",
+          className: "btn btn-primary",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 114,
+            columnNumber: 21
+          }
+        }, "Submit")))
+      );
+    }
+  }
+  exports.default = AddBook;
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

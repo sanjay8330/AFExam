@@ -1,0 +1,268 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _React = require('React');
+var _ReactDefault = _parcelHelpers.interopDefault(_React);
+var _axios = require('axios');
+var _axiosDefault = _parcelHelpers.interopDefault(_axios);
+var _jsxFileName = "C:\\Users\\HP\\Desktop\\Assignments\\PracticeExam2\\frontend\\components\\Books\\viewBooks.js";
+class ViewBooks extends _React.Component {
+  constructor(props) {
+    super(props);
+    this.navigateAuthorPage = this.navigateAuthorPage.bind(this);
+    this.onBookSelection = this.onBookSelection.bind(this);
+    this.onBookDeselection = this.onBookDeselection.bind(this);
+    this.loadBookSelection = this.loadBookSelection.bind(this);
+    this.state = {
+      "books": [],
+      "selectedBooks": [],
+      "cost": 0
+    };
+  }
+  /*New Methods*/
+  onBookSelection(index, bookPrice) {
+    this.setState({
+      cost: this.state.cost += bookPrice
+    });
+    let tempSelection = this.state.selectedBooks;
+    let book = tempSelection[index];
+    book = {
+      index,
+      selected: true
+    };
+    tempSelection[index] = book;
+    this.setState({
+      selectedBooks: tempSelection
+    });
+  }
+  /*New Method*/
+  onBookDeselection(index, bookPrice) {
+    this.setState({
+      cost: this.state.cost -= bookPrice
+    });
+    let tempSelection = this.state.selectedBooks;
+    let book = tempSelection[index];
+    book = {
+      index,
+      selected: false
+    };
+    tempSelection[index] = book;
+    this.setState({
+      selectedBooks: tempSelection
+    });
+  }
+  /*New Method*/
+  loadBookSelection(noOfBooks) {
+    let i = 0;
+    let tempArray = [];
+    while (i < noOfBooks) {
+      tempArray.push({
+        index: i,
+        selected: false
+      });
+      i++;
+    }
+    this.setState({
+      selectedBooks: tempArray
+    });
+  }
+  componentDidMount() {
+    _axiosDefault.default.get('http://localhost:8080/book/getBooks').then(response => {
+      this.setState({
+        books: response.data.data
+      });
+      this.loadBookSelection(this.state.books.length);
+    }).catch(error => {
+      alert('Error Fetching data');
+    });
+  }
+  navigateAuthorPage(e, bookId) {
+    window.location = `/${bookId}`;
+  }
+  render() {
+    return (
+      /*#__PURE__*/_ReactDefault.default.createElement("div", {
+        className: "container",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 73,
+          columnNumber: 13
+        }
+      }, /*#__PURE__*/_ReactDefault.default.createElement("div", {
+        className: "row",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 74,
+          columnNumber: 17
+        }
+      }, /*#__PURE__*/_ReactDefault.default.createElement("div", {
+        className: "col-sm",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 75,
+          columnNumber: 21
+        }
+      }, /*#__PURE__*/_ReactDefault.default.createElement("h1", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 76,
+          columnNumber: 25
+        }
+      }, "Available Books"), this.state.books.length > 0 && this.state.books.map((item, index) => /*#__PURE__*/_ReactDefault.default.createElement("div", {
+        key: index,
+        className: "card mb-3",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 78,
+          columnNumber: 29
+        }
+      }, /*#__PURE__*/_ReactDefault.default.createElement("div", {
+        className: "p-3",
+        onClick: e => this.navigateAuthorPage(e, item._id),
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 79,
+          columnNumber: 33
+        }
+      }, /*#__PURE__*/_ReactDefault.default.createElement("h4", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 80,
+          columnNumber: 37
+        }
+      }, "Book Name          : ", item.bookName), /*#__PURE__*/_ReactDefault.default.createElement("h5", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 81,
+          columnNumber: 37
+        }
+      }, "Book ISBN          : ", item.ISBN), /*#__PURE__*/_ReactDefault.default.createElement("h5", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 82,
+          columnNumber: 37
+        }
+      }, "Book Price         : ", item.bookPrice), /*#__PURE__*/_ReactDefault.default.createElement("h6", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 83,
+          columnNumber: 37
+        }
+      }, "Book Published Year: ", item.bookYOP), /*#__PURE__*/_ReactDefault.default.createElement("h6", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 84,
+          columnNumber: 37
+        }
+      }, "Book Publisher     : ", item.bookPublisher)), /*#__PURE__*/_ReactDefault.default.createElement("div", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 86,
+          columnNumber: 33
+        }
+      }, this.state.selectedBooks.length > 0 ? this.state.selectedBooks[index].selected ? /*#__PURE__*/_ReactDefault.default.createElement("button", {
+        className: "btn btn-success",
+        onClick: () => {
+          this.onBookDeselection(index, item.bookPrice);
+        },
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 89,
+          columnNumber: 45
+        }
+      }, "Selected") : /*#__PURE__*/_ReactDefault.default.createElement("button", {
+        className: "btn btn-primary",
+        onClick: () => {
+          this.onBookSelection(index, item.bookPrice);
+        },
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 92,
+          columnNumber: 45
+        }
+      }, "Select Book") : "")))), /*#__PURE__*/_ReactDefault.default.createElement("div", {
+        className: "col-sm",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 100,
+          columnNumber: 21
+        }
+      }, /*#__PURE__*/_ReactDefault.default.createElement("div", {
+        className: "card mt-5",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 101,
+          columnNumber: 25
+        }
+      }, /*#__PURE__*/_ReactDefault.default.createElement("div", {
+        className: "card-header",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 102,
+          columnNumber: 29
+        }
+      }, /*#__PURE__*/_ReactDefault.default.createElement("h1", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 103,
+          columnNumber: 33
+        }
+      }, "Calculate Total Book Cost")), /*#__PURE__*/_ReactDefault.default.createElement("div", {
+        className: "card-body",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 105,
+          columnNumber: 29
+        }
+      }, /*#__PURE__*/_ReactDefault.default.createElement("div", {
+        className: "form-group",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 106,
+          columnNumber: 33
+        }
+      }, /*#__PURE__*/_ReactDefault.default.createElement("label", {
+        htmlFor: "cost",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 107,
+          columnNumber: 37
+        }
+      }, "Total Cost"), /*#__PURE__*/_ReactDefault.default.createElement("input", {
+        type: "number",
+        className: "form-control",
+        id: "cost",
+        name: "cost",
+        value: this.state.cost,
+        disabled: true,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 108,
+          columnNumber: 37
+        }
+      })))))))
+    );
+  }
+}
+exports.default = ViewBooks;

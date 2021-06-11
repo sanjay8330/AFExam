@@ -1,0 +1,84 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _React = require('React');
+var _ReactDefault = _parcelHelpers.interopDefault(_React);
+var _axios = require('axios');
+var _axiosDefault = _parcelHelpers.interopDefault(_axios);
+var _jsxFileName = "C:\\Users\\HP\\Desktop\\Assignments\\PracticeExam2\\frontend\\components\\Books\\viewBookAuthor.js";
+class ViewBookAuthor extends _React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      "author": []
+    };
+  }
+  componentDidMount() {
+    _axiosDefault.default.get(`http://localhost:8080/book/getBookById/${this.props.match.params.bookId}`).then(response => {
+      this.setState({
+        author: response
+      });
+      console.log('RESPONSE', this.state.author);
+    }).catch(error => {
+      alert(error.message);
+    });
+  }
+  render() {
+    return (
+      /*#__PURE__*/_ReactDefault.default.createElement("div", {
+        className: "container",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 24,
+          columnNumber: 13
+        }
+      }, /*#__PURE__*/_ReactDefault.default.createElement("h1", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 25,
+          columnNumber: 17
+        }
+      }, "Book Author"), this.state.author.length > 0 && this.state.author.map((item, index) => /*#__PURE__*/_ReactDefault.default.createElement("div", {
+        key: index,
+        className: "card mb-3",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 27,
+          columnNumber: 21
+        }
+      }, /*#__PURE__*/_ReactDefault.default.createElement("div", {
+        className: "p-3",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 28,
+          columnNumber: 25
+        }
+      }, /*#__PURE__*/_ReactDefault.default.createElement("h4", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 29,
+          columnNumber: 29
+        }
+      }, "Author FirstName    : ", item.firstName), /*#__PURE__*/_ReactDefault.default.createElement("h5", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 30,
+          columnNumber: 29
+        }
+      }, "Author lastName     : ", item.lastName), /*#__PURE__*/_ReactDefault.default.createElement("h5", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 31,
+          columnNumber: 29
+        }
+      }, "Author Namtionality : ", item.nationality)))))
+    );
+  }
+}
+exports.default = ViewBookAuthor;

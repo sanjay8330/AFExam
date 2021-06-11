@@ -1,0 +1,11 @@
+<html>
+    <head>
+        <title>Online Book Library</title>
+        <link href="5dbcf16fa738f632b7cf8e956ab08256" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    </head>
+    <body>
+        <div id="root"></div>
+    </body>
+    <script src="400d348cf575c4d63a61c06670135790"></script>
+    <script src="e9b4ee65a1fdb59a744ddcec579be972" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+</html>

@@ -1,0 +1,149 @@
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  var _react = require('react');
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _jsxFileName = "C:\\Users\\HP\\Desktop\\Assignments\\PracticeExam2\\frontend\\components\\NavBar\\navBar.js";
+  class NavBar extends _react.Component {
+    constructor(props) {
+      super(props);
+    }
+    render() {
+      return (
+        /*#__PURE__*/_reactDefault.default.createElement("div", {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 9,
+            columnNumber: 13
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement("nav", {
+          className: "navbar navbar-expand-lg navbar-light bg-light",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 10,
+            columnNumber: 17
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement("div", {
+          className: "container-fluid",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 11,
+            columnNumber: 21
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement("a", {
+          className: "navbar-brand",
+          href: "#",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 12,
+            columnNumber: 25
+          }
+        }, "SLIIT AF Project 2"), /*#__PURE__*/_reactDefault.default.createElement("button", {
+          className: "navbar-toggler",
+          type: "button",
+          "data-bs-toggle": "collapse",
+          "data-bs-target": "#navbarNav",
+          "aria-controls": "navbarNav",
+          "aria-expanded": "false",
+          "aria-label": "Toggle navigation",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 13,
+            columnNumber: 25
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement("span", {
+          className: "navbar-toggler-icon",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 14,
+            columnNumber: 29
+          }
+        })), /*#__PURE__*/_reactDefault.default.createElement("div", {
+          className: "collapse navbar-collapse",
+          id: "navbarNav",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 16,
+            columnNumber: 25
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement("ul", {
+          className: "navbar-nav",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 17,
+            columnNumber: 29
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement("li", {
+          className: "nav-item",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 18,
+            columnNumber: 33
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement("a", {
+          className: "nav-link active",
+          "aria-current": "page",
+          href: "/addAuthor",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 19,
+            columnNumber: 37
+          }
+        }, "Add Authors")), /*#__PURE__*/_reactDefault.default.createElement("li", {
+          className: "nav-item",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 21,
+            columnNumber: 33
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement("a", {
+          className: "nav-link",
+          href: "/create-subject",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 22,
+            columnNumber: 37
+          }
+        }, "Create Subject")), /*#__PURE__*/_reactDefault.default.createElement("li", {
+          className: "nav-item",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 24,
+            columnNumber: 33
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement("a", {
+          className: "nav-link",
+          href: "/create-course",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 25,
+            columnNumber: 37
+          }
+        }, "Create Course")))))))
+      );
+    }
+  }
+  exports.default = NavBar;
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

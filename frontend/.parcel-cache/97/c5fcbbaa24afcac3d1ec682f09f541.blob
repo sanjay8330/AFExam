@@ -1,0 +1,66 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _React = require('React');
+var _ReactDefault = _parcelHelpers.interopDefault(_React);
+var _axios = require('axios');
+var _axiosDefault = _parcelHelpers.interopDefault(_axios);
+var _jsxFileName = "C:\\Users\\HP\\Desktop\\Assignments\\PracticeExam2\\frontend\\components\\Books\\viewBookAuthor.js";
+class ViewBookAuthor extends _React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      "author": []
+    };
+  }
+  componentDidMount() {
+    _axiosDefault.default.get(`http://localhost:8080/book/getBookById/${this.props.match.params.bookId}`).then(response => {
+      this.setState({
+        author: response.data.bookAuthor
+      });
+    }).catch(error => {
+      alert(error.message);
+    });
+  }
+  render() {
+    return (
+      /*#__PURE__*/_ReactDefault.default.createElement("div", {
+        className: "container",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 23,
+          columnNumber: 13
+        }
+      }, /*#__PURE__*/_ReactDefault.default.createElement("h1", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 24,
+          columnNumber: 17
+        }
+      }, "Book Author"), /*#__PURE__*/_ReactDefault.default.createElement("h4", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 25,
+          columnNumber: 17
+        }
+      }, "Author firstName  : ", this.state.author.firstName), /*#__PURE__*/_ReactDefault.default.createElement("h4", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 26,
+          columnNumber: 17
+        }
+      }, "Author lastName   : ", this.state.author.lastName), /*#__PURE__*/_ReactDefault.default.createElement("h4", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 27,
+          columnNumber: 17
+        }
+      }, "Author nationality: ", this.state.author.nationality))
+    );
+  }
+}
+exports.default = ViewBookAuthor;

@@ -1,0 +1,102 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _React = require('React');
+var _ReactDefault = _parcelHelpers.interopDefault(_React);
+var _axios = require('axios');
+var _axiosDefault = _parcelHelpers.interopDefault(_axios);
+var _jsxFileName = "C:\\Users\\HP\\Desktop\\Assignments\\PracticeExam2\\frontend\\components\\Books\\viewBooks.js";
+class ViewBooks extends _React.Component {
+  constructor(props) {
+    super(props);
+    this.navigateAuthorPage = this.navigateAuthorPage.bind(this);
+    this.state = {
+      "books": []
+    };
+  }
+  componentDidMount() {
+    _axiosDefault.default.get('http://localhost:8080/book/getBooks').then(response => {
+      this.setState({
+        books: response.data.data
+      });
+    }).catch(error => {
+      alert('Error Fetching data');
+    });
+  }
+  navigateAuthorPage(e, bookId) {
+    window.location = `/${bookId}`;
+  }
+  render() {
+    return (
+      /*#__PURE__*/_ReactDefault.default.createElement("div", {
+        className: "container",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 28,
+          columnNumber: 13
+        }
+      }, /*#__PURE__*/_ReactDefault.default.createElement("h1", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 29,
+          columnNumber: 17
+        }
+      }, "Available Books"), this.state.books.length > 0 && this.state.books.map((item, index) => /*#__PURE__*/_ReactDefault.default.createElement("div", {
+        key: index,
+        className: "card mb-3",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 31,
+          columnNumber: 21
+        }
+      }, /*#__PURE__*/_ReactDefault.default.createElement("div", {
+        className: "p-3",
+        onClick: e => this.navigateAuthorPage(e, item._id),
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 32,
+          columnNumber: 25
+        }
+      }, /*#__PURE__*/_ReactDefault.default.createElement("h4", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 33,
+          columnNumber: 29
+        }
+      }, "Book Name          : ", item.bookName), /*#__PURE__*/_ReactDefault.default.createElement("h5", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 34,
+          columnNumber: 29
+        }
+      }, "Book ISBN          : ", item.ISBN), /*#__PURE__*/_ReactDefault.default.createElement("h5", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 35,
+          columnNumber: 29
+        }
+      }, "Book Price         : ", item.bookPrice), /*#__PURE__*/_ReactDefault.default.createElement("h6", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 36,
+          columnNumber: 29
+        }
+      }, "Book Published Year: ", item.bookYOP), /*#__PURE__*/_ReactDefault.default.createElement("h6", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 37,
+          columnNumber: 29
+        }
+      }, "Book Publisher     : ", item.bookPublisher)))))
+    );
+  }
+}
+exports.default = ViewBooks;
