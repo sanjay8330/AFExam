@@ -1,14 +1,21 @@
+const app = require('../app');
 const request = require('supertest');
-const app = require('../index')
+const AuthorModel = require('../src/model/AuthorModel');
 
-describe('insert', () => {
+jest.setTimeout(30000);
 
-  test("should respond 200 as added", async () => {
-      const response = await request(app).post("/author").send({
-          firstName: "Raj",
-          lastName: "Kamal",
-          nationality: "American"
-      })
-      expect(response.statusCode).toBe(200);
-  })
+let id='';
+
+beforeAll(async () => {
+  await AuthorModel.deleteMany();
+});
+
+test('should insert a new Author', async () => {
+  await request(app).post('/author/addAuthor').send({
+    firstName: "James",
+    lastName: "Chadwick",
+    nationality: "American"
+  }).expect(200).then(response => {
+    id = response.body._id;
+  });
 });

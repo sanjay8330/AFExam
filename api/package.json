@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "jest"
+    "start": "env-cmd ./config/dev.env node index.js",
+    "test": "env-cmd ./config/test.env jest --watchAll"
   },
   "jest": {
-    "preset": "@shelf/jest-mongodb"
+    "testEnvironment": "node"
   },
   "author": "",
   "license": "ISC",
@@ -19,8 +19,11 @@
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "mongoose": "^5.12.13"
+  },
+  "devDependencies": {
+    "env-cmd": "^8.0.2",
     "jest": "^27.0.4",
-    "mongoose": "^5.12.13",
     "supertest": "^6.1.3"
   }
 }

@@ -14,7 +14,7 @@ app.use(cors());
 const PORT = process.env.PORT || 8080;
 const MONGODBURL = process.env.MONGODBURL;
 
-mongoose.connect(MONGODBURL, {
+mongoose.connect(MONGODBURL || '&w=majority', {
     useCreateIndex:true,
     useFindAndModify:false,
     useNewUrlParser:true,
